@@ -1,8 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../../assests/logo.svg';
 
-const App = () => {
+import './Notifications.css';
+
+const Notification = () => {
   const handleClick = () => {
     console.log('true to redirect')
   };
@@ -10,17 +11,17 @@ const App = () => {
     console.log("handledoLater")
   };
   return (
-    <div className="App">
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="Notification">
+      <div className="Notification-header">
+        <img src={logo} className="Notification-logo" alt="logo" />
         <p>
-          Turn on push notification
+         Notification
         </p>
       </div>
-      <div className="App-body">
+      <div className="Notification-body">
         <p>Lorem ipsum Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum</p>
         <a
-          className="App-link"
+          className="Notification-link"
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -28,7 +29,7 @@ const App = () => {
           What updates will I receive
         </a>
       </div>
-      <div className="App-footer">
+      <div className="Notification-footer">
         <button onClick={handleClick}>Turn it on</button>
         <button onClick={handledoLater}>I'll do it later</button>
       </div>
@@ -36,4 +37,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default Notification;
