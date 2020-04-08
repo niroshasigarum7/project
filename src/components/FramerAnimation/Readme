@@ -1,0 +1,43 @@
+
+reference links
+1. https://www.framer.com/api/
+
+Framer Library - a JavaScript library made for rapid interactive prototyping for web and mobile
+The Framer API was designed to work closely with Framer X, but is great as a standalone library. 
+Framer Library v0.10
+
+1.Framer provides helpers for advanced physics-based animation, complex touch-based gestures and common componets for scrolling, paging and interface flows.
+2. It's designed to allow beginners to explore digital product ideas without boundaries.
+
+It builds on following technologies.
+1. React - A library to define components and build interfaces. It provides structure to your project by default so you can eaily re-use and share.
+2. JSX - A way to use HTML-like syntax directly inside JavaScript so that you can express document structures in a familiar way.
+3. TypeScript - An optional extension to ES6 JavaScript to add types so your editor understands the code you are writing, and can provide excellent inline autocomplete and documentation.
+
+
+Installation
+1. npm install framer
+
+Importing
+import { Frame, Scroll, useCycle } from "framer"
+
+
+1. A set of properties and helpers for high performance, declarative animations.
+2. Animations in Framer are primarily controlled via the Frame component.
+3. The key properties are animate and transition, which take a variety of options to customize animations.
+4. All the animation properties and helpers are included when you import Frame, with the exception of useCycle.
+
+Animate
+
+Cycle
+1. A more extensive example would be toggle the scale value on a tap, which uses the useCycle hook through a set of values.
+2. You can also use useCycle to cycle between sets of visual properties.
+
+
+Dragging
+1. You can eaily make any Frame draggable by using drag property.
+2. To constrain dragging to a vertical or horizontal axis, you can include an optional "x" or "y" value.
+
+Scrolling
+1. For scrolling, you can wrap any content inside a Scroll component, which exceeds the size of the component either vertically or horizontally.
+

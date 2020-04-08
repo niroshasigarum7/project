@@ -5,6 +5,7 @@ import VisibleTodoList from '../containers/VisibleTodoList'
 import Counter from './Counter/Counter'
 import Notification from './Notifications/Notifications'
 import UnitTesting from './UnitTesting/UnitTesting'
+import FramerAnimation from './FramerAnimation/FramerAnimation'
 
 const App = () => (
     <div id="app">
@@ -14,6 +15,7 @@ const App = () => (
         <Footer />
         {/* <Notification />
         {/* <UnitTesting /> */}
+        <FramerAnimation />
     </div>
 )
 
