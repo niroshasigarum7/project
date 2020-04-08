@@ -4,6 +4,7 @@ import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
 import Counter from './Counter/Counter'
 import Notification from './Notifications/Notifications'
+import UnitTesting from './UnitTesting/UnitTesting'
 
 const App = () => (
     <div id="app">
@@ -11,7 +12,8 @@ const App = () => (
         <VisibleTodoList />
         <Counter />
         <Footer />
-        <Notification />
+        {/* <Notification />
+        {/* <UnitTesting /> */}
     </div>
 )
 
