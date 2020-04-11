@@ -6,16 +6,18 @@ import Counter from './Counter/Counter'
 import Notification from './Notifications/Notifications'
 import UnitTesting from './UnitTesting/UnitTesting'
 import FramerAnimation from './FramerAnimation/FramerAnimation'
+import SliderApp from './Slider/index'
 
 const App = () => (
     <div id="app">
+        <FramerAnimation />
         <AddTodo />
         <VisibleTodoList />
         <Counter />
         <Footer />
         {/* <Notification />
         {/* <UnitTesting /> */}
-        <FramerAnimation />
+        <SliderApp />
     </div>
 )
 
