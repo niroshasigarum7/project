@@ -11,7 +11,7 @@ const SliderApp = () => {
             width={"50%"}
             height={"50%"}
             background={"#242424"}
-            center
+            top={"70%"}
         >
             <Frame
                 name={"Image"}

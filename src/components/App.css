@@ -1,0 +1,35 @@
+
+#footer-todo {
+    margin-bottom: 30px;
+}
+#add-todo {
+    background-color: aqua;
+}
+/* TODO: animation-durtation should be alive till the page is live */
+#visible-todo {
+    width: 100%;
+    height: 100%;
+    background-color: darkolivegreen;
+    color: white;
+    animation-name: visibletodo;
+    animation-duration: 30s;
+}
+
+@keyframes visibletodo {
+    0% {
+        background-color: darkolivegreen; 
+        color: yellow;
+    }
+    25% { 
+        background-color: yellow; 
+        color: darkolivegreen;
+    }
+    50% {
+        background-color: cyan;
+        color: mediumvioletred;
+    }
+    100% {
+        background-color: blueviolet;
+        color: cyan;
+    }
+}

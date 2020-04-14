@@ -1,11 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addTodo } from '../actions'
+import './AddTodo.css'
 
 const AddTodo = ({ dispatch }) => {
     let input
     return (
-        <div>
+        <div className="add-todo__container">
             <form
                 onSubmit = {e => {
                     e.preventDefault()
@@ -16,8 +17,8 @@ const AddTodo = ({ dispatch }) => {
                     input.value = ''
                 }}
             >
-                <input ref={node => (input = node)} />
-                <button type="submit">Add Todo</button>
+                <input className="input" ref={node => (input = node)} />
+                <button className="button" type="submit">Add Destination</button>
             </form>
         </div>
     )

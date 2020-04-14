@@ -1,0 +1,29 @@
+Jest - Unit testing
+
+Official site - https://jestjs.io/
+
+
+References
+
+
+1. Jest is a delightful JavaScript Testing Framework with a focus on simplicity.
+2. It works with projects using Babel, TypeScript, Node, React, Angular, Vue and more!
+
+
+Advantages
+1. zero config: Jest aims to work out of the box, config free, on most JavaScript projects.
+2. snapshots: Make tests which keep track of large objects with ease. Snapshots live either alongside your tests or embedded inline.
+3. isolated: Tests are parallelized by running them in their own processes to maximize performance.
+4. great api: From it to expect - Jest has the entire toolkit in one place. Well documented, well maintained, well good
+5. Fast and safe
+- By ensuring your tests have unique global state, Jest can reliably run tests in parallel.
+- To make things quick, Jest runs previously failed tests frist and re-organizes runs based on how long test files take.
+6. Code coverage
+- Generate code coverage by adding the flag --coverage.
+- No additional setup needed.
+- Jest can collect code coverage information from entire projects, including untested files.
+7. Easy mocking
+- Jest uses a custom resolver for imports in your tests making it simple to mock any object outside of your test's scope.
+- You can use mocked imports with the rich Mock functions API to spy on function calls with readable test syntax
+8. great exceptions
+- Test fail - when they do, Jest provides rich context (toBe, toBeCloseTo toEqual)
