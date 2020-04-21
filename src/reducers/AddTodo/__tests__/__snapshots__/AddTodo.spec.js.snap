@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddTodo returns the expected or correct state 1`] = `
+Array [
+  Object {
+    "completed": false,
+    "id": 0,
+    "text": "Use Redux",
+  },
+]
+`;
+
+exports[`AddTodo should test the initial state 1`] = `
+Array [
+  Object {
+    "completed": false,
+    "id": 0,
+    "text": "Use Redux",
+  },
+]
+`;
