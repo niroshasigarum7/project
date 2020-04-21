@@ -220,4 +220,49 @@ Exploring matchers
  - https://facebook.github.io/jest/docs/en/expect.HTML
 
 
+ https://willowtreeapps.com/ideas/best-practices-for-unit-testing-with-a-react-redux-approach
+
+Test-Driven Development (TDD) approach
+
+React/Redux Unit Testing
+- Actions & Async Action Creators
+- Reducers
+- Components
+- Connected Components
+- Forms
+
+Actions & Async Action Creators
+
+1. All we care about here is that the correct action was called and it returned the right action.
+2. So unit tests should only know about actions/events and state.
+3. For async action creators using Redux Thunk (or other middleware), mock the (minimally) required Redux store for testing.
+4. If needed, you can apply the middleware to said store using redux-mock-store.
+5. you can alos fetch-mock to mock the HTTP requests, but that might be overkill.
+6. I've found it preferable to simply use a mockServiceCreator function with a suite of body fixtures.
+
+Example - Pending
+
+Reducer
+
+1. A reducer should just return a new state object after applying an action to the previous state.
+
+
+
+https://alligator.io/react/testing-redux-reducers/
  
+1. Reducers are waht complete the render chain in React / Redux applications.
+2. They update our state when an action is taken, which causes React to re-render the UI.
+
+You may notice a few omissions from the setup code we used for testing actions.
+1. We didn't mock out our store. That means we don't need to import the redux-mock-store package.
+2. We also don't need to run clearActions() before each test. This is becuase we'll test the result returned from our reducers after calling them directly.
+3. We won't dispatch() them into our store like we did with the actions.
+
+Test your Reducers
+Let's first test our initial state.
+1. We do this by passing a dummy action into our reducer.
+2. I have a switch statement in the reducer with a default case.
+3. If the action type is unrecognized by the reducer then it returns the current, unmodified state.
+4. Otherwise, it returns the modified state.
+5. So by passing in a dummy action we can test our initialState (since we run this test first).
+
