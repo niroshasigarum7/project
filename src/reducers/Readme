@@ -1,0 +1,29 @@
+https://medium.com/@netxm/testing-redux-reducers-with-jest-6653abbfe3e1
+
+1. The reducer is a pure function that takes the previous state and an action, and returns the next state.
+2. Because it's a PURE FUNCTION, it's easy to test.
+3. It's a function that produces no side effects; 
+    - given the same input, will always return the same output;
+    - doesn't rely on external state
+
+
+What to test?
+
+1. Usually reducer consists of initial state and switch statement to handle every action.
+2. I like to break down my store into different sub-stores and have separate reducers for each sub-store.
+3. Sometimes one switch/case may handle few actions, because the business logic is the same and outcome should be the same.
+4. Some example GET_POST and UPDATE_POST should u[date the same store and produce same outcome.
+
+5. It's important to test reducers.
+6. That's where business logic should happen and where new application state is formed based on external API or internal response.
+
+Bolierplate
+
+1. As any unit test, it starts with boilerplate setup and writing empty tests just to outline what needs to tested.
+2. I like to test the initial state and then every switch/case in the reducer to see if the action.payload will produce expected store.
+3. If you stop and think about it -- it's simple
+
+
+1. Having unit tests for all the reducers will prevent any issues related to global application state.
+2. It's especially useful if there are a lot of different API calls and every call will modify a state.
+3. It's easy to break entire application state with a small refactoring without realizing it.
