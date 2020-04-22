@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="canvas.css">
+    <script type="text/javascript" src="canvanJson.js"></script>
+    <script type="text/javascript" src="canvas.js"></script>
+</head>
+<body>
+    <div
+        class="right-panel"
+        ondragover="allowDrop(event)"
+    >
+        <img 
+            id="scrissor"
+            draggable="true"
+            ondragStart="drag(event)"
+            src="scissor.svg"
+            alt="scrissor"
+            width="50"
+            height="50"
+        />
+        <img
+            id="glue"
+            draggable="true"
+            ondragstart="drag(event)"
+            src="glue.svg"
+            alt="glue"
+            width="50"
+            height="50"
+        />
+        <img
+            id="eraser"
+            draggable="true"
+            ondragstart="drag(event)"
+            src="eraser.svg"
+            alt="eraser"
+            width="50"
+            height="50"
+        />
+    </div>
+    <div id="paint-container">
+        <div id="canvas-container">
+            <div
+                id="rectangleCanvas-container"
+                ondrop="rectangleDrop(event)"
+                ondragover="allowDrop(event)"
+            >
+                <canvas
+                    id="rectangleCanvas"
+                    style="border:1px solid #000000;"
+                >
+                </canvas>
+                <div class="split-container">
+                    <canvas
+                        id="rectangleCanvas1"
+                        style="border:1px solid #000000;"
+                    >
+                    </canvas>
+                    <canvas
+                        id="rectangleCanvas2"
+                        style="border:1px solid #000000;"
+                    >
+                    </canvas>
+                </div>
+            </div>
+            <div
+                id="circCanvas"
+                ondrop="circleDrop(event)"
+                ondragover="allowDrop(event)"
+            >
+                <canvas 
+                    id="circleCanvas"
+                    style="border: 1px solid #d3d3d3;"
+                ></canvas>
+                <div class="split-container">
+                    <canvas 
+                        id="circleCanvas1" 
+                        width="200"
+                        height="100"
+                        style="border: 1px solid #d3d3d3;"
+                    ></canvas>
+                    <canvas 
+                        id="circleCanvas2" 
+                        width="200"
+                        height="100"
+                        style="border: 1px solid #d3d3d3;"
+                    ></canvas>
+                </div>
+            </div>
+            <div
+                id="triCanvas"
+                ondrop="triangleDrop(event)"
+                ondragover="allowDrop(event)"
+            >
+                <canvas
+                    id="triangleCanvas"
+                    width="700"
+                    height="700"
+                ></canvas>
+                <div class="split-container">
+                    <canvas
+                        id="triangleCanvas1"
+                        width="600"
+                        height="700"
+                    ></canvas>
+                    <canvas
+                        id="triangleCanvas2"
+                        width="600"
+                        height="700"
+                    ></canvas>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var jsonResponse = JSON.parse(jsonObject);
+
+        document.getElementById("rectangleCanvas1").style.display = "none"
+        document.getElementById("rectangleCanvas2").style.display = "none"
+        document.getElementById("circleCanvas1").style.display = "none"
+        document.getElementById("circleCanvas2").style.display = "none"
+        document.getElementById("triangleCanvas1").style.display = "none"
+        document.getElementById("triangleCanvas2").style.display = "none"
+    
+        formRectangle(document.getElementById("rectangleCanvas"), true);
+        formCircle(document.getElementById("circleCanvas"), 95);
+        formTriangle(document.getElementById("triangleCanvas"));
+    </script>
+</body>
+</html>
