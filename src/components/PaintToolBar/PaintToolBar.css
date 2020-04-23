@@ -1,0 +1,7 @@
+.right-panel {
+    float: right;
+    display: flex;
+    flex-direction: column;
+    background: lightgrey;
+    padding: 20px 10px;
+}
