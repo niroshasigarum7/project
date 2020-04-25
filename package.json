@@ -9,6 +9,7 @@
     "framer": "^1.1.7",
     "framer-cli": "^1.5.13",
     "framer-motion": "^1.10.3",
+    "jest-html-reporter": "^3.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-markdown": "^4.3.1",
@@ -21,8 +22,14 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test jest --coverage --coverageDirectory=output/coverage/jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "coverageReporters": [
+      "html",
+      "cobertura"
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"

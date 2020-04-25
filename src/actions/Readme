@@ -1,0 +1,110 @@
+
+Actions
+
+1. Actions are payloads of information that send data from your application to your store.
+2. They are the only source of information to the store.
+3. You send them to the store using store.dispatch()
+
+4. Actions are plain javaScript objects.
+5. Actions must have a type property that indicates the type of action being performed.
+6. Types should typically be defined as string constants.
+7. Once your app is large enough, you may want to move them into a separate module.
+
+8. You don't have to define action type constants in separate file, or even to define them at all.
+9. For a small project, it might be easier to just use string literals for action types.
+10. However, there are some benifits to explicitly declaring constants in larger codebases.
+
+11. Other than type, the structure of an action object is really upto you.
+
+
+Action Creators
+
+1. Action creators are exactly that - functions that create actions.
+2. It's easy to conflate the terms "action" and "action creator", so do your best use the proper term.
+
+3. In Redux, action creators simply return an action:
+4. This makes them portable and easy to test.
+
+functions addTodo(text) {
+    return {
+        type: ADD_TODO,
+        text
+    }
+}
+
+5. In traditional Flux, action creators often trigger a dispatch when invoked
+
+function addTodoWithDispatch(text) {
+    const action = {
+        type: ADD_TODO,
+        text
+    }
+    dispatch(action)
+}
+
+6. In Redux this is not the case. Instead, to actually initiate a dispatch, pass the result to the dispatch() function:
+
+dispatch(addTodo(text))
+dispatch(completeTodo(index))
+
+7. Alternatively, you can create a bound action creator that automatically dispatches
+
+const bountAddTodo = text => dispatch(addTodo(text))
+const boundCompleteTodo = index => dispatch(completeTodo(index))
+
+8. Now you'll be able to call them directly:
+
+bountAddTodo(text)
+boundCompleteTodo(index)
+
+9. The dispatch() function can be accessed directly from the store as store.dispatch(),
+10. but more likely you'll access it using a helper like react-redux's connect().
+11. You can use bindActionCreators() to automatically bind many action creators to a dispatch() function.
+
+12. Action creators can be asynchrous and have side-effects.
+
+
+Async Actions
+
+1. We build a simple todo application.
+2. It was fully synchrous.
+3. Every time an action was dispatched, the state was updated immediately.
+
+4. We will build a different asynchrous application.
+5. It will use the Reddit API to show the current headlines for selected subreddit.
+6. How does asynchronicity fit into Redux flow?
+
+Actions
+
+1. When you call an asynchronous API, there are two crucial moments in time:
+- the moment you start the call, and the moment when you receive an answer (or a timeout).
+- Each of these two moments usually require a change in the aplication state;
+- to do that, you need to dispatch normal actions that will be processed by reducers synchrously.
+- Usually, for any API request you'll want to dispatch at least three different kinds of actions:
+
+1. An action informing that reduers that the request began.
+ - The reducers may handle this action by toggling an isFecthing flag in the state.
+ - This way the UI knows it's time to show a spinner.
+
+2. An action informing the reducers that the request finished successfully.
+ - The reducers may handle this action by merging the new data into the state they manage and resetting isFecthing.
+ - The UI would hide the spinner, and display the fetched data.
+
+3. An action informing the reducers that the request failed.
+ - The reducers may handle this action by resetting isFecthing.
+ - Additionally, some reducers may want to store the error message so the UI can display it.
+
+You may use a dedicated status field in your actions
+
+{ type: 'FETCH_POSTS' }
+{ type: 'FETCH_POSTS', status: 'error', error: 'Oops' }
+{ type: 'FETCH_POSTS', status: 'success', response: {...}}
+
+or you can define separate types for them
+
+{ type: 'FETCH_POSTS_REQUEST' }
+{ type: 'FETCH_POSTS_FAILURE', error: 'Oops' }
+{ type: 'FETCH_POSTS_SUCCESS', response: { ... }}
+
+
+synchrous action creators
